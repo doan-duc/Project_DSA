@@ -282,9 +282,9 @@ void suaThongTinBN(DanhSachBN *list, DanhSachDV *list2) {
     system("cls");
     printf(">>> Da cap nhat.\n");
     sleep_fake(2);
+    quanLyBN(list, list2);
 }
 
-// ... các hàm timKiemBN, thongKeBN hoàn toàn tương tự code gốc, không thay đổi gì về logic ...
 
 void timKiemBN(DanhSachBN *list, DanhSachDV *list2) {
     system("cls");
@@ -351,7 +351,6 @@ void thongKeBN(DanhSachBN *list, DanhSachDV *list2) {
     quanLyBN(list, list2);
 }
 
-// --------- Các menu/phụ cho dịch vụ cũng giữ nguyên logic ---------
 
 void quanLyDichVu(DanhSachBN *list, DanhSachDV *list2) {
     int k;
