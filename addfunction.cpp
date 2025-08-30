@@ -9,13 +9,19 @@
 #endif
 
 char* layThoiGian() {
-    static char date[11]; // Định dạng dd/mm/yyyy (10 ký tự + 1 ký tự null)
-    time_t now = time(NULL);
-    struct tm *timeinfo = localtime(&now);
-
-    sprintf(date, "%02d/%02d/%04d", timeinfo->tm_mday, timeinfo->tm_mon + 1, timeinfo->tm_year + 1900);
+    static char date[16]; // rộng rãi hơn
+    time_t now = time(nullptr);
+#ifdef _WIN32
+    struct tm t; localtime_s(&t, &now);
+    strftime(date, sizeof(date), "%d/%m/%Y", &t);
+#else
+    struct tm t; localtime_r(&now, &t);
+    strftime(date, sizeof(date), "%d/%m/%Y", &t);
+#endif
     return date;
 }
+snprintf(date, sizeof(date), "%02d/%02d/%04d", tm_mday, tm_mon+1, tm_year+1900);
+
 
 void sleep_fake(int n) {
     for (int i = 1; i <= n; i++) {
@@ -38,7 +44,7 @@ void eraseLines(int count) {// xóa count dòng
 
 int convert(char *s){ // biến chuỗi số thành số nguyên
     int result = 0;
-    for(int i = 0; i < strlen(s); i++){
+    for (size_t i = 0, n = strlen(s); i < n; ++i){
         result = result*10+((int)s[i]-48);
     }
     return result;
@@ -75,3 +81,4 @@ int DangNhap() {
         return 0;
     }
 }
+
