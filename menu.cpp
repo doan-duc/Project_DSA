@@ -240,32 +240,54 @@ void suaThongTinBN(DanhSachBN *list, DanhSachDV *list2) {
     }
     printf("=== SUA THONG TIN === (bo qua = giu nguyen)\n");
     char buf[128];
-    char newTen[MAX_NAME];      strncpy(newTen, p->tenBenhNhan, MAX_NAME);
+    char newTen[MAX_NAME];        strncpy(newTen, p->tenBenhNhan, MAX_NAME - 1);        newTen[MAX_NAME - 1] = '\0';
     int  newTuoi    = p->tuoiBenhNhan;
-    char newSDT[MAX_PHONE];     strncpy(newSDT, p->SDT, MAX_PHONE);
-    char newCCCD[MAX_CCCD];     strncpy(newCCCD, p->CCCD, MAX_CCCD);
-    char newTinhTrang[MAX_NAME];strncpy(newTinhTrang, p->tinhTrangBenh, MAX_NAME);
+    char newSDT[MAX_PHONE];       strncpy(newSDT, p->SDT,        MAX_PHONE - 1);        newSDT[MAX_PHONE - 1] = '\0';
+    char newCCCD[MAX_CCCD];       strncpy(newCCCD, p->CCCD,      MAX_CCCD - 1);         newCCCD[MAX_CCCD - 1] = '\0';
+    char newTinhTrang[MAX_NAME];  strncpy(newTinhTrang, p->tinhTrangBenh, MAX_NAME - 1);newTinhTrang[MAX_NAME - 1] = '\0';
     int  newBHYT    = p->BHYT;
     Node *newDV     = p->dichVu;
 
     printf("Ten [%s]: ", p->tenBenhNhan);
     fgets(buf, sizeof(buf), stdin);
-    if (buf[0] != '\n') { buf[strcspn(buf, "\n")] = '\0'; strncpy(newTen, buf, MAX_NAME); }
+    if (buf[0] != '\n') { 
+        buf[strcspn(buf, "\n")] = '\0'; 
+        strncpy(newTen, buf, MAX_NAME - 1); 
+        newTen[MAX_NAME - 1] = '\0';
+    }
+
     printf("Tuoi [%d]: ", p->tuoiBenhNhan);
     fgets(buf, sizeof(buf), stdin);
     if (buf[0] != '\n')   newTuoi = atoi(buf);
+
     printf("SDT [%s]: ", p->SDT);
     fgets(buf, sizeof(buf), stdin);
-    if (buf[0] != '\n') { buf[strcspn(buf, "\n")] = '\0'; strncpy(newSDT, buf, MAX_PHONE); newSDT[MAX_PHONE-1] = '\0';}
+    if (buf[0] != '\n') { 
+        buf[strcspn(buf, "\n")] = '\0'; 
+        strncpy(newSDT, buf, MAX_PHONE - 1); 
+        newSDT[MAX_PHONE - 1] = '\0';
+    }
+
     printf("CCCD [%s]: ", p->CCCD);
     fgets(buf, sizeof(buf), stdin);
-    if (buf[0] != '\n') { buf[strcspn(buf, "\n")] = '\0'; strncpy(newCCCD, buf, MAX_CCCD); }
+    if (buf[0] != '\n') { 
+        buf[strcspn(buf, "\n")] = '\0'; 
+        strncpy(newCCCD, buf, MAX_CCCD - 1); 
+        newCCCD[MAX_CCCD - 1] = '\0';
+    }
+
     printf("Tinh trang [%s]: ", p->tinhTrangBenh);
     fgets(buf, sizeof(buf), stdin);
-    if (buf[0] != '\n') { buf[strcspn(buf, "\n")] = '\0'; strncpy(newTinhTrang, buf, MAX_NAME); }
+    if (buf[0] != '\n') { 
+        buf[strcspn(buf, "\n")] = '\0'; 
+        strncpy(newTinhTrang, buf, MAX_NAME - 1); 
+        newTinhTrang[MAX_NAME - 1] = '\0';
+    }
+
     printf("BHYT (1/0) [%d]: ", p->BHYT);
     fgets(buf, sizeof(buf), stdin);
     if (buf[0] != '\n')   newBHYT = atoi(buf);
+
     printf("Muon doi dich vu? (y/n): ");
     fgets(buf, sizeof(buf), stdin);
     if (buf[0] == 'y' || buf[0] == 'Y') {
@@ -486,14 +508,15 @@ void suaDVMenu(DanhSachBN *list, DanhSachDV *list2) {
     printf("=== SUA THONG TIN === (bo qua = giu nguyen)\n");
     char buf[128];
 
-    char   newTen[MAX_NAME];  strncpy(newTen, p->tenDichVu, MAX_NAME);
+    char   newTen[MAX_NAME];  strncpy(newTen, p->tenDichVu, MAX_NAME - 1); newTen[MAX_NAME - 1] = '\0';
     double newGia            = p->giaTien;
 
     printf("Ten dich vu [%s]: ", p->tenDichVu);
     fgets(buf, sizeof(buf), stdin);
     if (buf[0] != '\n') {
         buf[strcspn(buf, "\n")] = '\0';
-        strncpy(newTen, buf, MAX_NAME);
+        strncpy(newTen, buf, MAX_NAME - 1);
+        newTen[MAX_NAME - 1] = '\0';
     }
 
     printf("Gia tien [%.0lf]: ", p->giaTien);
