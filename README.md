@@ -1,40 +1,42 @@
+---
+
 # Project\_DSA
 
-Ứng dụng C++ minh hoạ **Cấu trúc dữ liệu & Giải thuật** (DSA) thông qua một chương trình quản lý đơn giản theo mô-đun (patient, service, bill, v.v.), chạy trên **console** với menu thao tác.
+A C++ application demonstrating **Data Structures & Algorithms (DSA)** through a simple modular management program (patient, service, bill, etc.), running on the **console** with menu-based interaction.
 
 ---
 
-## 🎯 Mục tiêu
+## 🎯 Objectives
 
-* Tổ chức mã nguồn theo **mô-đun rõ ràng**, giúp rèn luyện thiết kế phần mềm.
-* Vận dụng **cấu trúc dữ liệu** (vector/list/map, …) và **giải thuật** (tìm kiếm, sắp xếp) trong bài toán quản lý.
-* Tạo nền tảng để mở rộng: lưu trữ dữ liệu, kiểm thử, báo cáo hiệu năng.
+* Organize source code with **clear modular structure**, reinforcing software design skills.
+* Apply **data structures** (vector/list/map, …) and **algorithms** (searching, sorting) in a management problem.
+* Provide a foundation for future extensions: data persistence, testing, performance reporting.
 
-## ✨ Tính năng chính
+## ✨ Key Features
 
-* **Quản lý bệnh nhân (Patient)**: thêm / sửa / xoá / tìm kiếm / sắp xếp.
-* **Quản lý dịch vụ (Service)**: thêm / sửa / xoá / niêm yết giá.
-* **Hoá đơn (Bill)**: lập hoá đơn theo bệnh nhân & dịch vụ, tính tổng tiền.
-* **Tra cứu**: theo mã / tên, lọc theo điều kiện cơ bản.
-* **Giao diện menu console**: thao tác tuần tự, dễ thử nghiệm.
-* *(Tuỳ chọn nếu đã triển khai)* **Lưu/đọc dữ liệu** từ file.
+* **Patient Management**: add / edit / delete / search / sort.
+* **Service Management**: add / edit / delete / list with prices.
+* **Billing**: generate bills for patients & services, calculate totals.
+* **Lookup**: by ID / name, filter with basic conditions.
+* **Console menu interface**: sequential operations, easy to experiment with.
+* *(Optional, if implemented)* **Save/load data** from file.
 
-## 🧱 Kiến trúc & mô-đun
+## 🧱 Architecture & Modules
 
-* `patient.{h,cpp}`: Định nghĩa **Patient** (ví dụ: id, name, age, gender, phone, address, …) & thao tác liên quan.
-* `service.{h,cpp}`: Định nghĩa **Service** (code, name, price, …) & CRUD.
-* `bill.{h,cpp}`: Định nghĩa **Bill** (id, patientId, danh sách dịch vụ, tổng tiền, …).
-* `addfunction.{h,cpp}`: Hàm tiện ích chung (validate input, format chuỗi/số, xử lý ngoại lệ, I/O phụ trợ, …).
-* `menu.{h,cpp}`: Hiển thị menu & điều hướng lệnh tới các mô-đun.
-* `main.cpp`: Điểm vào chương trình, vòng lặp chạy menu.
+* `patient.{h,cpp}`: Defines **Patient** (id, name, age, gender, phone, address, …) & related operations.
+* `service.{h,cpp}`: Defines **Service** (code, name, price, …) & CRUD.
+* `bill.{h,cpp}`: Defines **Bill** (id, patientId, service list, total amount, …).
+* `addfunction.{h,cpp}`: Common utility functions (input validation, string/number formatting, error handling, helper I/O, …).
+* `menu.{h,cpp}`: Displays menu & routes commands to modules.
+* `main.cpp`: Entry point of the program, runs the main menu loop.
 
-## 🛠️ Yêu cầu hệ thống
+## 🛠️ System Requirements
 
-* **Compiler**: C++17 trở lên (GCC/Clang/MSVC)
-* **CMake** *(tuỳ chọn)*: 3.16+
-* **Hệ điều hành**: Windows / Linux / macOS
+* **Compiler**: C++17 or later (GCC/Clang/MSVC)
+* **CMake** *(optional)*: 3.16+
+* **Operating System**: Windows / Linux / macOS
 
-## 🚀 Build & chạy nhanh
+## 🚀 Quick Build & Run
 
 **Windows (MinGW):**
 
@@ -50,18 +52,20 @@ g++ -std=c++17 -O2 -Wall src/*.cpp -o Project_DSA
 ./Project_DSA
 ```
 
-## 🕹️ Hướng dẫn sử dụng (ví dụ)
+## 🕹️ Usage Guide (example)
 
-Khi chạy chương trình, bạn sẽ thấy menu dạng:
+When running the program, you will see a menu like:
 
 ```
 ===== MENU =====
-1. Quản lý bệnh nhân
-2. Quản lý dịch vụ
-3. Lập hoá đơn
-4. Tra cứu
-0. Thoát
-Chọn: _
+1. Patient Management
+2. Service Management
+3. Billing
+4. Lookup
+0. Exit
+Choose: _
 ```
 
-Bên trong mỗi mục có các thao tác: **Thêm / Sửa / Xoá / Liệt kê / Tìm / Sắp xếp**. Hãy nhập số tương ứng theo hướng dẫn trên màn hình.
+Each section provides operations: **Add / Edit / Delete / List / Search / Sort**. Enter the corresponding number following the on-screen instructions.
+
+---
