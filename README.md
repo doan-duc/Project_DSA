@@ -2,6 +2,8 @@
 
 Ứng dụng C++ minh hoạ **Cấu trúc dữ liệu & Giải thuật** (DSA) thông qua một chương trình quản lý đơn giản theo mô-đun (patient, service, bill, v.v.), chạy trên **console** với menu thao tác.
 
+---
+
 ## 🎯 Mục tiêu
 
 * Tổ chức mã nguồn theo **mô-đun rõ ràng**, giúp rèn luyện thiết kế phần mềm.
@@ -15,6 +17,7 @@
 * **Hoá đơn (Bill)**: lập hoá đơn theo bệnh nhân & dịch vụ, tính tổng tiền.
 * **Tra cứu**: theo mã / tên, lọc theo điều kiện cơ bản.
 * **Giao diện menu console**: thao tác tuần tự, dễ thử nghiệm.
+* *(Tuỳ chọn nếu đã triển khai)* **Lưu/đọc dữ liệu** từ file.
 
 ## 🧱 Kiến trúc & mô-đun
 
@@ -25,7 +28,31 @@
 * `menu.{h,cpp}`: Hiển thị menu & điều hướng lệnh tới các mô-đun.
 * `main.cpp`: Điểm vào chương trình, vòng lặp chạy menu.
 
-## 🕹️ Mô tả chương trình
+## 🛠️ Yêu cầu hệ thống
+
+* **Compiler**: C++17 trở lên (GCC/Clang/MSVC)
+* **CMake** *(tuỳ chọn)*: 3.16+
+* **Hệ điều hành**: Windows / Linux / macOS
+
+## 🚀 Build & chạy nhanh
+
+### Cách 1: Dùng g++/clang++ (đơn giản)
+
+**Windows (MinGW):**
+
+```bash
+g++ -std=c++17 -O2 -Wall src/*.cpp -o Project_DSA
+Project_DSA.exe
+```
+
+**Linux/macOS:**
+
+```bash
+g++ -std=c++17 -O2 -Wall src/*.cpp -o Project_DSA
+./Project_DSA
+```
+
+## 🕹️ Hướng dẫn sử dụng (ví dụ)
 
 Khi chạy chương trình, bạn sẽ thấy menu dạng:
 
