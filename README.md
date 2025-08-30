@@ -36,8 +36,6 @@
 
 ## 🚀 Build & chạy nhanh
 
-### Cách 1: Dùng g++/clang++ (đơn giản)
-
 **Windows (MinGW):**
 
 ```bash
